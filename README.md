@@ -1,7 +1,41 @@
 grunt-atomify
 =============
 
-[![Build Status](https://api.travis-ci.org/mich-cook/grunt-atomify.svg?branch=master)](https://travis-ci.org/mich-cook/grunt-atomify)
-[![Dependency Status](https://david-dm.org/mich-cook/grunt-atomify.svg)](https://david-dm.org/mich-cook/grunt-atomify)
+This fork supports multiple targets in your Gruntfile.
 
-Hook atomify into your grunt process
+For example, you can have two different atomify configurations for release and debug builds.
+In this example, we're minifying the release artifact, and leaving the debug artifact inflated, for readability.
+This also shows that you can use grunt string replacement, which is a popular thing in yeoman generators.
+
+```javascript
+
+atomify: {
+  dist: {
+    jsConfig: {
+      entry: '<%= yeoman.app %>/src/index.js',
+      transforms: ['debowerify', 'uglifyify'],
+      debug: false,
+      output: '<%= yeoman.dist %>/js/main.js'
+    }
+  },
+  debug: {
+    jsConfig: {
+      entry: 'app/src/index.js',
+      transforms: ['debowerify'],
+      debug: true,
+      output: 'dist/js/main.js'
+    }
+  }
+}
+
+```
+
+To run your dist build:
+```
+grunt atomify:dist
+```
+
+To run your debug build:
+```
+grunt atomify:debug
+```
