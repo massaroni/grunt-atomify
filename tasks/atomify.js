@@ -16,23 +16,22 @@ module.exports = function(grunt) {
         var expectedCallbacks = 0;
         var receivedCallbacks = 0;
 
-        function mkdirIfNeeded(outputFile)  {
-            var lastSlash, path,
-                directory = '', directories;
+        var mkdirIfNeeded = function (outputFile)  {
+          var pathParts = outputFile.split('/');
 
-            if(outputFile.lastIndexOf('/') > 0)  {
-                // mkdir the output if it doesn't exist
-                lastSlash = outputFile.lastIndexOf('/');
-                path = outputFile.slice(0, lastSlash);
+          if (pathParts.length < 2) {
+            return;
+          }
 
-                if(fs.existsSync(path) === false)  {
-                    directories = path.split('/').forEach(function(element, index, array)  {
-                        directory += element + '/';
-                        fs.mkdirSync(directory);
-                    });
-                }
+          var parentPath = [];
+          for (var i = 0; i < pathParts.length - 1; i++) {
+            parentPath.push(pathParts[i]);
+            var directory = parentPath.join('/');
+
+            if (fs.existsSync(directory) === false) {
+              fs.mkdirSync(directory);
             }
-
+          }
         }
 
         if(jsConfig !== undefined)  {
