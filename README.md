@@ -39,3 +39,13 @@ To run your debug build:
 ```
 grunt atomify:debug
 ```
+
+## Installation
+
+This fork is not registered in npm, so you have to point to this github repo in your package.json, like this:
+
+```javascript
+"devDependencies": {
+  "grunt-atomify": "massaroni/grunt-atomify"
+}
+```
