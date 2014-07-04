@@ -11,7 +11,7 @@ This also shows that you can use grunt string replacement, which is a popular th
 
 atomify: {
   dist: {
-    jsConfig: {
+    js: {
       entry: '<%= yeoman.app %>/src/index.js',
       transforms: ['debowerify', 'uglifyify'],
       debug: false,
@@ -19,7 +19,7 @@ atomify: {
     }
   },
   debug: {
-    jsConfig: {
+    js: {
       entry: 'app/src/index.js',
       transforms: ['debowerify'],
       debug: true,
