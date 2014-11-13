@@ -32,7 +32,7 @@ module.exports = function(grunt) {
               fs.mkdirSync(directory);
             }
           }
-        }
+        };
 
         if(jsConfig !== undefined)  {
             // if there's a directory in the output, we have to make it
