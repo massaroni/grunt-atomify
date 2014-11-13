@@ -3,6 +3,12 @@
   "description": "Use Grunt to atomify all the stuff in an automated way",
   "version": "0.3.1",
   "homepage": "https://github.com/massaroni/grunt-atomify",
+  "author": {
+    "name": "mich Cook"
+  },
+  "contributors": [
+    { "name": "Kevin Massaroni" }
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/massaroni/grunt-atomify.git"
