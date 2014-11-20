@@ -1,7 +1,7 @@
 {
   "name": "grunt-atomify",
   "description": "Use Grunt to atomify all the stuff in an automated way",
-  "version": "0.4.1",
+  "version": "0.6.0",
   "homepage": "https://github.com/massaroni/grunt-atomify",
   "author": {
     "name": "mich Cook"
