@@ -4,7 +4,8 @@ grunt-atomify
 This fork supports multiple targets in your Gruntfile.
 
 For example, you can have two different atomify configurations for release and debug builds.
-In this example, we're minifying the release artifact, and leaving the debug artifact inflated, for readability.
+In this example, we're minifying the release artifact, and leaving the debug artifact inflated, and we're starting a
+livereload server in debug mode, for interactive development.
 This also shows that you can use grunt string replacement, which is a popular thing in yeoman generators.
 
 ```javascript
@@ -24,7 +25,20 @@ atomify: {
       transforms: ['debowerify'],
       debug: true,
       output: 'dist/js/main.js'
-    }
+    },
+    server: {
+      port: 9000,
+      hostname: 'localhost',
+      url: 'http://localhost:9000/yeoman/app/src/index.html',
+      open: true,
+      lr: {
+        sync: true,
+        port: 35729,
+        verbose: true,
+        // can't use grunt string replacement in these patterns
+        patterns: [ 'yeoman/app/src/**/*.js' ]
+      }
+   }
   }
 }
 
