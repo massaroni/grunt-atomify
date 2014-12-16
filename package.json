@@ -7,7 +7,9 @@
     "name": "mich Cook"
   },
   "contributors": [
-    { "name": "Kevin Massaroni" }
+    {
+      "name": "Kevin Massaroni"
+    }
   ],
   "repository": {
     "type": "git",
@@ -26,7 +28,9 @@
     "node": ">= 0.8.0"
   },
   "dependencies": {
-    "atomify": "6.0.2"
+    "atomify": "6.0.2",
+    "node-fs-extra": "^0.8.1",
+    "path": "^0.4.9"
   },
   "peerDependencies": {
     "grunt": "~0.4.5"

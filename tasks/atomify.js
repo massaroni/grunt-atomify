@@ -1,6 +1,7 @@
 'use strict';
 
-var fs = require('fs');
+var fs = require('fs-extra');
+var path = require('path');
 var atomify = require('atomify');
 
 module.exports = function (grunt) {
@@ -18,21 +19,8 @@ module.exports = function (grunt) {
     var receivedCallbacks = 0;
 
     var mkdirIfNeeded = function (outputFile) {
-      var pathParts = outputFile.split('/');
-
-      if (pathParts.length < 2) {
-        return;
-      }
-
-      var parentPath = [];
-      for (var i = 0; i < pathParts.length - 1; i++) {
-        parentPath.push(pathParts[i]);
-        var directory = parentPath.join('/');
-
-        if (fs.existsSync(directory) === false) {
-          fs.mkdirSync(directory);
-        }
-      }
+      var dirname = path.dirname(outputFile);
+      fs.mkdirsSync(dirname);
     };
 
     if (jsConfig !== undefined) {
